@@ -1,0 +1,104 @@
+
+
+.home-section.open {
+    margin-left: 70px;
+}
+
+.home-section .text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+
+.order-options input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+/* Container for image and order options */
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  /* Image wrapper */
+  .image-wrapper {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+  }
+  
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Menu name */
+  .menu-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  /* Order options */
+  .order-options {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Order option labels */
+  .order-options label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  /* Order option select */
+  .order-options select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Order option button */
+  .order-options button {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    background-color: #a68164;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .order-options button:hover {
+    background-color: #45a049;
+  }
+  
+  
