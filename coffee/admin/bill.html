@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" type="text/css" href="bill.css">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+          <i class='bx bxl-c-plus-plus icon'></i>
+            <div class="logo_name">Coffee</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+          <li>
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Search...">
+            <span class="tooltip">Search</span>
+          </li>
+          <li>
+            <a href="../admin/dashbord.html">
+              <i class='bx bx-grid-alt'></i>
+              <span class="links_name">Dashboard</span>
+            </a>
+            <span class="tooltip">Dashboard</span>
+          </li>
+          <li>
+            <a href="../admin/menu.html">
+              <i class='bx bx-coffee'></i>
+              <span class="links_name">Menu</span>
+            </a>
+            <span class="tooltip">Menu</span>
+          </li>
+    
+          <li>
+            <a href="../admin/bill.html">
+              <i class='bx bx-cart-alt'></i>
+              <span class="links_name">Bill</span>
+            </a>
+            <span class="tooltip">Bill</span>
+          </li>
+          <li>
+            <a href="../admin/likemenu.html">
+              <i class='bx bx-heart'></i>
+              <span class="links_name">Saved</span>
+            </a>
+            <span class="tooltip">Saved</span>
+          </li>
+          <li>
+            <a href="../admin/user_management.html">
+              <i class='bx bx-user' ></i>
+              <span class="links_name">Bill</span>
+            </a>
+            <span class="tooltip">Bill</span>
+          </li>
+          <li class="profile">
+            <div class="profile-details">
+              <img src="profile.jpg" alt="profileImg">
+              <div class="name_job">
+                <div class="name">ชื่อผู้ใช้</div>
+                <div class="job">Web designer</div>
+              </div>
+            </div>
+            <i class='bx bx-log-out' id="log_out"></i>
+            
+          </li>
+        </ul>
+      </div>
+    <section class="home-section">
+        <div class="text">Coffee shop</div>
+    <section class="order-details">
+        <h2>รายละเอียดการสั่งซื้อ</h2>
+        <div class="item">
+            <img src="https://img.wongnai.com/p/1920x0/2021/02/23/44a05702d4f54f58ac8aced3f3ef4a36.jpg" alt="Item 1" width="50">
+            <span>ลำดับที่ 1</span>
+            <span>ชาเขียว</span>
+            <span>ประเภทเครื่องดื่ม เย็น </span>
+            <span>ระดับความหวาน 100%</span>
+            <span>จำนวนแก้วที่สั่ง 1 แก้ว</span>
+            <span>ราคา 50฿</span>
+
+        </div>
+        <div class="item">
+            <img src="https://d.line-scdn.net/lcp-prod-photo/20210817_260/16291706207376Gqcz_JPEG/BGW974YKFT5V0SLCY3FY5XAJHZ0AHU.jpg" alt="Item 2" width="50">
+            <span>ลำดับที่ 2</span>
+            <span>กาแฟดำ</span>
+            <span>ประเภทเครื่องดื่ม ร้อน </span>
+            <span>ระดับความหวาน 100%</span>
+            <span>จำนวนแก้วที่สั่ง 1 แก้ว</span>
+            <span> ราคา 45฿</span>
+        </div>
+        <!-- Add more items as needed -->
+    </section>
+    <footer>
+        <p>ขอบคุณสำหรับการทำงาน!</p>
+    </footer>
+
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+
+    searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
+
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+      if (sidebar.classList.contains("open")) {
+        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+      } else {
+        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+      }
+    }
+  </script>
+</body>
+</html>
