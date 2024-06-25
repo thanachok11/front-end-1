@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="dashbord.css">
+<link rel="stylesheet" href="style.css">
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<style>
+  /* Your CSS styles here */
+</style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus icon'></i>
+        <div class="logo_name">Coffee</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="../admin/dashbord.html">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+         <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+       <a href="../admin/menu.html">
+         <i class='bx bx-coffee' ></i>
+         <span class="links_name">Menu</span>
+       </a>
+       <span class="tooltip">Menu</span>
+     </li>
+    
+     <li>
+       <a href="../admin/bill.html">
+         <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Bill</span>
+       </a>
+       <span class="tooltip">Bill</span>
+     </li>
+     <li>
+       <a href="../admin/likemenu.html">
+         <i class='bx bx-heart' ></i>
+         <span class="links_name">Saved</span>
+       </a>
+       <span class="tooltip">Saved</span>
+     </li>
+     <li>
+      <a href="../admin/user_management.html">
+        <i class='bx bx-user' ></i>
+        <span class="links_name">user</span>
+      </a>
+      <span class="tooltip">user</span>
+    </li>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="profile.jpg" alt="profileImg">
+           <div class="name_job">
+             <div class="name">ชื่อผู้ใช้</div>
+             <div class="job">Web designer</div>
+           </div>
+         </div>
+         <i class='bx bx-log-out' id="log_out" ></i>
+     </li>
+    </ul>
+  </div>
+<!-- HTML -->
+<section class="home-section">
+  <div class="text">Coffee shop</div>
+    <div class="app-body-main-content">
+        <section class="service-section">
+            <h2>Dashbord</h2>
+            <div class="service-section-header">
+                <div class="search-field">		
+                </div>
+
+            </div>
+            <div class="tiles">
+              <article class="tile top-selling-items">
+                  <div class="rist">
+                      <i class="ph-lightning-light"></i>
+                          <h1>เมนูยอดนิยมรายเดือน</h1>
+                              <tr>
+                                <th>อันดับ 1</th>
+                                <th>รูปภาพ</th>
+                                <th>ชื่อเมนู</th><br>
+                                <th>อันดับ 2</th>
+                                <th>รูปภาพ</th>
+                                <th>ชื่อเมนู</th><br>
+                                <th>อันดับ 3</th>
+                                <th>รูปภาพ</th>
+                                <th>ชื่อเมนู</th><br>
+                                <th>อันดับ 4</th>
+                                <th>รูปภาพ</th>
+                                <th>ชื่อเมนู</th>
+                  </div>
+                
+              </article>
+              <article class="tile customer-orders">
+                  <div class="customer">
+                      <i class="ph-fire-simple-light"></i>
+                          <h1>รายละเอียดการขายรายวัน</h1>
+                          <th>ดูว่าใครเป็นคนขายในวันนั้น</th><br>
+                          <th>เมนูยอดนิยมรายวัน</th><br>
+                          <th>รายได้ทั้งหมดวันนั้น</th><br>
+                  </div>
+
+              </article>
+              <article class="tile">
+                  <div class="customer">
+                      <i class="ph-file-light"></i>
+                      <h1>Recent Orders</h1>
+                      
+                  </div>
+                 
+              </article>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <canvas id="salesChart" width="800" height="400"></canvas>
+          <script>
+            var ctx = document.getElementById('salesChart').getContext('2d');
+            var salesChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
+                    datasets: [{
+                        label: 'ยอดขาย',
+                        data: [1000, 1500, 2000, 1800, 2500, 3000, 2800, 3200, 2800, 3500, 4000, 3800],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return value.toLocaleString('th-TH', { style: 'currency', currency: 'THB' });
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    var label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += context.parsed.y.toLocaleString('th-TH', { style: 'currency', currency: 'THB' });
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+          <script>
+            let sidebar = document.querySelector(".sidebar");
+            let closeBtn = document.querySelector("#btn");
+            let searchBtn = document.querySelector(".bx-search");
+          
+            closeBtn.addEventListener("click", ()=>{
+              sidebar.classList.toggle("open");
+              menuBtnChange();//calling the function(optional)
+            });
+          
+            searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+              sidebar.classList.toggle("open");
+              menuBtnChange(); //calling the function(optional)
+            });
+          
+            // following are the code to change sidebar button(optional)
+            function menuBtnChange() {
+             if(sidebar.classList.contains("open")){
+               closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+             }else {
+               closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+             }
+            }
+            </script>
+</body>
+
+</body>
+</html>
